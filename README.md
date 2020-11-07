@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Python](https://img.shields.io/badge/Python-v.3.*-green.svg)](https://www.python.org/download/releases/3.0/)
 
-A Simple TOY Scripting language
+A Super Simple TOY Scripting language
 
 ## Requirements
 - Python v.3.^
