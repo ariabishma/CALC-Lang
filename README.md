@@ -5,6 +5,42 @@
 A Simple TOY Programming language
 
 ## Installation
-- pip install ply
-- cd src
-- python3 ./shell.py
+```
+$ pip install ply
+$ cd src
+$ python3 ./shell.py
+```
+## Examples
+
+### Addition
+```
+calc-Lang >> 1 + 1
+2
+calc-Lang >> 580 + 100
+680
+```
+
+### Multiplication
+```
+calc-Lang >> 10 * 10
+100
+calc-Lang >> 5 * 100
+500
+```
+
+### Division
+```
+calc-Lang >> 10 / 2
+5
+calc-Lang >> 100 / 10
+10
+```
+
+### Substraction
+```
+calc-Lang >> 10 - 2
+8
+calc-Lang >> 100 - 10
+90
+```
+
