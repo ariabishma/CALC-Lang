@@ -6,7 +6,7 @@ A Simple TOY Programming language
 
 ## Installation
 ```
-$ pip install ply
+$ pip3 install ply
 $ cd src
 $ python3 ./shell.py
 ```
