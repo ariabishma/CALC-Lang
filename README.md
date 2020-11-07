@@ -11,6 +11,7 @@ A Simple TOY Scripting language
 
 ## Installation
 ```
+$ git clone https://github.com/ariabishma/CALC-Lang.git
 $ pip3 install ply
 $ cd src
 $ python3 ./shell.py
