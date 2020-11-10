@@ -1,0 +1,10 @@
+program     : var
+            | expr
+
+var_assign  : VARIABLE ID EQ expr
+
+mat_op      : expr PLUS expr
+
+expr        : NUMBER
+            | mat_op
+            | ID

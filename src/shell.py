@@ -10,16 +10,27 @@ from Core import Math
 # Interpreter
 #####################################
 
-script ="1+1"
 
 parser = CLCParser()
+# ast = parser.parser.parse(script)
+
+# print(ast)
 
 while True:
     script = input("calc-Lang >> ")
     if script == "exit":
         exit()
         
-    ast = parser.parser.parse(script)
-    res = Math(ast)
+    ast = parser.parser.parse(script,debug=0)
+    if ast :
+        res = Math(ast)
+        print(res.r)
+    
 
-    print("result : ",res)
+
+    # tokens = parser.lexer.get_tokenized()
+
+    # print("===================TOKEN===============")
+    # print(tokens)
+    # print("===================AST===============")
+    # print(ast)

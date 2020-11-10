@@ -51,5 +51,5 @@ calc-Lang >> 100 - 10
 ```
 
 ## TODO
-- [ ] multi expression (example : 1+2+3+4)
+- [x] multi expression (example : 1+2+3+4)
 - [ ] Advance Math Function (example : sum, pi, etc.)
