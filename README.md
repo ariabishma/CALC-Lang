@@ -22,7 +22,6 @@ $ python3 ./shell.py [filename]
 ```
 ## Examples
 
-### Addition
 ```
 _var x = 100
 _var y = 200
