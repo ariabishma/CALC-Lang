@@ -1,36 +1,63 @@
-# A Simple Calculator Language
+# CLCLang
+# A Simple Scripting Language
+#
 # Aria Bishma <ariabishma848@gmail.com>
 
 
 from CLCParser import CLCParser
 
-from Core import Math
+from CLCInterpreter import CLCInterpreter as Interpret
+
+import sys
+
 
 #####################################
-# Interpreter
+# Shell
 #####################################
 
 
 parser = CLCParser()
-# ast = parser.parser.parse(script)
 
-# print(ast)
+file_name = sys.argv[1]
 
-while True:
-    script = input("calc-Lang >> ")
-    if script == "exit":
-        exit()
-        
-    ast = parser.parser.parse(script,debug=0)
-    if ast :
-        res = Math(ast)
-        print(res.r)
+file_format = file_name[len(file_name)-4:]
+
+
+
+try:
+    with open(file_name) as f:
+        script = f.read()
+
+    if(file_format != ".clc"):
+        script = ""
+        print("the file format is must be .clc")
+except: 
+    script = ""
+    print("cannot find '" , file_name ,"'")
+
+
+
+
+script = script.splitlines()
+
+asts = {"program" :[]}
+
+class varSotrage:
+    def __init__(self):
+        self.vars = {}
     
+    def setVar(self,identifier,value):
+        self.vars[identifier] = value
+
+    def getVar(self,identifier):
+        if self.vars[identifier]:
+            return self.vars[identifier]
+        print("variable {} , has not declared",identifier)
+        return 0
+storage = varSotrage()
 
 
-    # tokens = parser.lexer.get_tokenized()
-
-    # print("===================TOKEN===============")
-    # print(tokens)
-    # print("===================AST===============")
-    # print(ast)
+for s in script:
+    ast = parser.parser.parse(s)
+    if ast:
+        res = Interpret(ast,storage)
