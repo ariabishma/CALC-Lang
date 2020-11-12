@@ -1,9 +1,14 @@
-program     : var
-            | expr
+program     : var_assign
+            | print
 
 var_assign  : VARIABLE ID EQ expr
 
+print       : PRINT expr
+
 mat_op      : expr PLUS expr
+            | expr TIMES expr
+            | expr DIVIDE expr
+            | expr MINUS expr
 
 expr        : NUMBER
             | mat_op
