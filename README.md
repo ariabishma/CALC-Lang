@@ -1,8 +1,8 @@
-# CALC-Lang
+# CALC-Lang - A simple TOY Scripting Language
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Python](https://img.shields.io/badge/Python-v.3.*-green.svg)](https://www.python.org/download/releases/3.0/)
 
-A  Simple TOY Scripting language
+A Simple TOY Scripting language
 
 ## Requirements
 - Python v.3.^
@@ -16,40 +16,30 @@ $ pip3 install ply
 $ cd src
 $ python3 ./shell.py
 ```
+## Usage 
+```
+$ python3 ./shell.py [filename]
+```
 ## Examples
 
 ### Addition
 ```
-calc-Lang >> 1 + 1
-2
-calc-Lang >> 580 + 100
-680
+_var x = 100
+_var y = 200
+_var z = 300
+
+_print x * y *z
+_print x + 100 * 10
+_print 10
+
+>> OUTPUT
+PRINT OUT :  6000000
+PRINT OUT :  1100
+PRINT OUT :  10
 ```
 
-### Multiplication
-```
-calc-Lang >> 10 * 10
-100
-calc-Lang >> 5 * 100
-500
-```
-
-### Division
-```
-calc-Lang >> 10 / 2
-5
-calc-Lang >> 100 / 10
-10
-```
-
-### Substraction
-```
-calc-Lang >> 10 - 2
-8
-calc-Lang >> 100 - 10
-90
-```
 
 ## TODO
-- [x] multi expression (example : 1+2+3+4)
-- [ ] Advance Math Function (example : sum, pi, etc.)
+- [x] multi expression (example : 1+2*3+4)
+- [x] Variable Assignment
+- [x] String
