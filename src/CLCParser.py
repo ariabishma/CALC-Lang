@@ -27,17 +27,23 @@ class CLCParser:
     def p_program(self,p):
         """
         program : var
-                | expr
+                | print
         """
         p[0] = p[1]
+
+    def p_print(self,p):
+        """
+        print : PRINT expr
+        """
+        p[0] = ("PRINT",p[2])
 
     def p_varAssign(self,p):
         """
         var : VARIABLE ID EQ expr 
         """
-        p[0] = ("var_assignment",p[1],p[2],p[3],p[4])
+        p[0] = ("var_assignment",p[2],p[4])
 
-
+    
     def p_add(self,p):
         """
         mat_op : expr PLUS expr
@@ -45,7 +51,7 @@ class CLCParser:
                | expr DIVIDE expr
                | expr MINUS expr
         """
-        # p[0] = p[1] + p[3]
+        
         if p[2] == "*":
             p[0] = ("MAT_MULT",p[1],p[3])
         elif p[2] == "/":
@@ -61,6 +67,7 @@ class CLCParser:
         expr : NUMBER
              | ID
              | mat_op
+             | STRING
         """
         p[0] = p[1]
         
