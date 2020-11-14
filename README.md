@@ -7,12 +7,12 @@ A Simple TOY Scripting language
 ## Requirements
 - Python v.3.^
 - PIP
-- Python Lex-Yacc (ply)
 
 ## Installation
 ```
 $ git clone https://github.com/ariabishma/CALC-Lang.git
-$ pip3 install ply
+$ cd CALC-Lang
+$ python3 setup.py
 $ cd src
 $ python3 ./shell.py
 ```
