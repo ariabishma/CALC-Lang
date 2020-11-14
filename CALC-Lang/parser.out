@@ -1,0 +1,358 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> var
+Rule 2     program -> print
+Rule 3     print -> PRINT expr
+Rule 4     var -> VARIABLE ID EQ expr
+Rule 5     mat_op -> expr PLUS expr
+Rule 6     mat_op -> expr TIMES expr
+Rule 7     mat_op -> expr DIVIDE expr
+Rule 8     mat_op -> expr MINUS expr
+Rule 9     expr -> NUMBER
+Rule 10    expr -> ID
+Rule 11    expr -> mat_op
+Rule 12    expr -> STRING
+
+Terminals, with rules where they appear
+
+DIVIDE               : 7
+EQ                   : 4
+ID                   : 4 10
+MINUS                : 8
+NUMBER               : 9
+PLUS                 : 5
+PRINT                : 3
+STRING               : 12
+TIMES                : 6
+VARIABLE             : 4
+error                : 
+
+Nonterminals, with rules where they appear
+
+expr                 : 3 4 5 5 6 6 7 7 8 8
+mat_op               : 11
+print                : 2
+program              : 0
+var                  : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . var
+    (2) program -> . print
+    (4) var -> . VARIABLE ID EQ expr
+    (3) print -> . PRINT expr
+
+    VARIABLE        shift and go to state 4
+    PRINT           shift and go to state 5
+
+    program                        shift and go to state 1
+    var                            shift and go to state 2
+    print                          shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> var .
+
+    $end            reduce using rule 1 (program -> var .)
+
+
+state 3
+
+    (2) program -> print .
+
+    $end            reduce using rule 2 (program -> print .)
+
+
+state 4
+
+    (4) var -> VARIABLE . ID EQ expr
+
+    ID              shift and go to state 6
+
+
+state 5
+
+    (3) print -> PRINT . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 7
+    mat_op                         shift and go to state 10
+
+state 6
+
+    (4) var -> VARIABLE ID . EQ expr
+
+    EQ              shift and go to state 12
+
+
+state 7
+
+    (3) print -> PRINT expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    $end            reduce using rule 3 (print -> PRINT expr .)
+    PLUS            shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINUS           shift and go to state 16
+
+
+state 8
+
+    (9) expr -> NUMBER .
+
+    PLUS            reduce using rule 9 (expr -> NUMBER .)
+    TIMES           reduce using rule 9 (expr -> NUMBER .)
+    DIVIDE          reduce using rule 9 (expr -> NUMBER .)
+    MINUS           reduce using rule 9 (expr -> NUMBER .)
+    $end            reduce using rule 9 (expr -> NUMBER .)
+
+
+state 9
+
+    (10) expr -> ID .
+
+    PLUS            reduce using rule 10 (expr -> ID .)
+    TIMES           reduce using rule 10 (expr -> ID .)
+    DIVIDE          reduce using rule 10 (expr -> ID .)
+    MINUS           reduce using rule 10 (expr -> ID .)
+    $end            reduce using rule 10 (expr -> ID .)
+
+
+state 10
+
+    (11) expr -> mat_op .
+
+    PLUS            reduce using rule 11 (expr -> mat_op .)
+    TIMES           reduce using rule 11 (expr -> mat_op .)
+    DIVIDE          reduce using rule 11 (expr -> mat_op .)
+    MINUS           reduce using rule 11 (expr -> mat_op .)
+    $end            reduce using rule 11 (expr -> mat_op .)
+
+
+state 11
+
+    (12) expr -> STRING .
+
+    PLUS            reduce using rule 12 (expr -> STRING .)
+    TIMES           reduce using rule 12 (expr -> STRING .)
+    DIVIDE          reduce using rule 12 (expr -> STRING .)
+    MINUS           reduce using rule 12 (expr -> STRING .)
+    $end            reduce using rule 12 (expr -> STRING .)
+
+
+state 12
+
+    (4) var -> VARIABLE ID EQ . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 17
+    mat_op                         shift and go to state 10
+
+state 13
+
+    (5) mat_op -> expr PLUS . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 18
+    mat_op                         shift and go to state 10
+
+state 14
+
+    (6) mat_op -> expr TIMES . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 19
+    mat_op                         shift and go to state 10
+
+state 15
+
+    (7) mat_op -> expr DIVIDE . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 20
+    mat_op                         shift and go to state 10
+
+state 16
+
+    (8) mat_op -> expr MINUS . expr
+    (9) expr -> . NUMBER
+    (10) expr -> . ID
+    (11) expr -> . mat_op
+    (12) expr -> . STRING
+    (5) mat_op -> . expr PLUS expr
+    (6) mat_op -> . expr TIMES expr
+    (7) mat_op -> . expr DIVIDE expr
+    (8) mat_op -> . expr MINUS expr
+
+    NUMBER          shift and go to state 8
+    ID              shift and go to state 9
+    STRING          shift and go to state 11
+
+    expr                           shift and go to state 21
+    mat_op                         shift and go to state 10
+
+state 17
+
+    (4) var -> VARIABLE ID EQ expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    $end            reduce using rule 4 (var -> VARIABLE ID EQ expr .)
+    PLUS            shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINUS           shift and go to state 16
+
+
+state 18
+
+    (5) mat_op -> expr PLUS expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    PLUS            reduce using rule 5 (mat_op -> expr PLUS expr .)
+    MINUS           reduce using rule 5 (mat_op -> expr PLUS expr .)
+    $end            reduce using rule 5 (mat_op -> expr PLUS expr .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+
+  ! TIMES           [ reduce using rule 5 (mat_op -> expr PLUS expr .) ]
+  ! DIVIDE          [ reduce using rule 5 (mat_op -> expr PLUS expr .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 16 ]
+
+
+state 19
+
+    (6) mat_op -> expr TIMES expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    PLUS            reduce using rule 6 (mat_op -> expr TIMES expr .)
+    TIMES           reduce using rule 6 (mat_op -> expr TIMES expr .)
+    DIVIDE          reduce using rule 6 (mat_op -> expr TIMES expr .)
+    MINUS           reduce using rule 6 (mat_op -> expr TIMES expr .)
+    $end            reduce using rule 6 (mat_op -> expr TIMES expr .)
+
+  ! PLUS            [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+
+
+state 20
+
+    (7) mat_op -> expr DIVIDE expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    PLUS            reduce using rule 7 (mat_op -> expr DIVIDE expr .)
+    TIMES           reduce using rule 7 (mat_op -> expr DIVIDE expr .)
+    DIVIDE          reduce using rule 7 (mat_op -> expr DIVIDE expr .)
+    MINUS           reduce using rule 7 (mat_op -> expr DIVIDE expr .)
+    $end            reduce using rule 7 (mat_op -> expr DIVIDE expr .)
+
+  ! PLUS            [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+
+
+state 21
+
+    (8) mat_op -> expr MINUS expr .
+    (5) mat_op -> expr . PLUS expr
+    (6) mat_op -> expr . TIMES expr
+    (7) mat_op -> expr . DIVIDE expr
+    (8) mat_op -> expr . MINUS expr
+
+    PLUS            reduce using rule 8 (mat_op -> expr MINUS expr .)
+    MINUS           reduce using rule 8 (mat_op -> expr MINUS expr .)
+    $end            reduce using rule 8 (mat_op -> expr MINUS expr .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+
+  ! TIMES           [ reduce using rule 8 (mat_op -> expr MINUS expr .) ]
+  ! DIVIDE          [ reduce using rule 8 (mat_op -> expr MINUS expr .) ]
+  ! PLUS            [ shift and go to state 13 ]
+  ! MINUS           [ shift and go to state 16 ]
+

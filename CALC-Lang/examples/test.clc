@@ -1,0 +1,9 @@
+_var x = 100
+_var y = 200
+_var z = 300
+
+_print x * y *z
+_print x + 100 * 10
+_print 10
+
+_print "hello world"
