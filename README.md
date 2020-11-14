@@ -12,7 +12,7 @@ A Simple TOY Scripting language
 ```
 $ git clone https://github.com/ariabishma/CALC-Lang.git
 $ cd CALC-Lang
-$ python3 setup.py
+$ pip install . (or) pip3 install . (if use pip3)
 $ cd src
 $ python3 ./shell.py
 ```
