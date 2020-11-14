@@ -14,7 +14,7 @@ $ git clone https://github.com/ariabishma/CALC-Lang.git
 $ cd CALC-Lang
 $ pip3 install 
 $ cd src
-$ python3 ./shell.py
+$ python3 ./shell.py ./examples/test.clc
 ```
 ## Usage 
 ```
