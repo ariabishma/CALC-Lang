@@ -6,13 +6,13 @@ A Simple TOY Scripting language
 
 ## Requirements
 - Python v.3.^
-- PIP
+- pip
 
 ## Installation
 ```
 $ git clone https://github.com/ariabishma/CALC-Lang.git
 $ cd CALC-Lang
-$ pip install . (or) pip3 install . (if use pip3)
+$ pip3 install 
 $ cd src
 $ python3 ./shell.py
 ```
